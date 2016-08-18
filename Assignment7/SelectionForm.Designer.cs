@@ -30,6 +30,8 @@
         {
             this.MoviesList = new System.Windows.Forms.ListBox();
             this.CategoryList = new System.Windows.Forms.ListBox();
+            this.MoviePictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.MoviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MoviesList
@@ -49,17 +51,29 @@
             this.CategoryList.Size = new System.Drawing.Size(120, 290);
             this.CategoryList.TabIndex = 0;
             // 
+            // MoviePictureBox
+            // 
+            this.MoviePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MoviePictureBox.Location = new System.Drawing.Point(13, 355);
+            this.MoviePictureBox.Name = "MoviePictureBox";
+            this.MoviePictureBox.Size = new System.Drawing.Size(120, 146);
+            this.MoviePictureBox.TabIndex = 1;
+            this.MoviePictureBox.TabStop = false;
+            this.MoviePictureBox.Click += new System.EventHandler(this.MoviePictureBox_Click);
+            // 
             // SelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 513);
+            this.Controls.Add(this.MoviePictureBox);
             this.Controls.Add(this.CategoryList);
             this.Controls.Add(this.MoviesList);
             this.Name = "SelectionForm";
             this.Text = "Movies";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Movies_FormClosed);
             this.Load += new System.EventHandler(this.Movies_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.MoviePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -68,5 +82,6 @@
 
         private System.Windows.Forms.ListBox MoviesList;
         private System.Windows.Forms.ListBox CategoryList;
+        private System.Windows.Forms.PictureBox MoviePictureBox;
     }
 }

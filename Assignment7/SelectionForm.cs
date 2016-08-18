@@ -21,7 +21,7 @@ namespace Assignment7
             InitializeComponent();
         }
 
-        private void Movies_Load(object sender, EventArgs e)
+        public void Movies_Load(object sender, EventArgs e)
         {
             string[] MovieList = new string[21];
 
@@ -59,7 +59,7 @@ namespace Assignment7
             categoryList[7] = "Drama";
             categoryList[8] = "Action";
             categoryList[9] = "Horror";
-            categoryList[10] ="Action";
+            categoryList[10] = "Action";
             categoryList[11] = "Action";
             categoryList[12] = "Thriller";
             categoryList[13] = "Drama";
@@ -72,7 +72,9 @@ namespace Assignment7
             categoryList[20] = "New Release";
             CategoryList.Items.AddRange(categoryList);
 
+
         }
+
 
 
         private void Movies_FormClosed(object sender, FormClosedEventArgs e)
@@ -80,8 +82,18 @@ namespace Assignment7
             Application.Exit();
         }
 
+
+        private void MoviePictureBox_Click(object sender, EventArgs e)
+        {
+        }
+
         private void MoviesList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            foreach (string value in MoviesList.SelectedItems)
+                if (value == "Season of the Witch")
+                {
+                    MoviePictureBox.Image = new Bitmap(Properties.Resources.Movie_Bonanza);
+                }
 
         }
     }
