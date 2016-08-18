@@ -12,10 +12,6 @@ namespace Assignment7
 {
     public partial class SelectionForm : Form
     {
-        decimal[] price = new decimal[]
-            {1.99m, 1.99m, 2.99m, 2.99m, 2.99m, 1.99m, 0.99m, 4.99m};
-        string[] comedyMovies = new string[] { };
-
         public SelectionForm()
         {
             InitializeComponent();
@@ -70,8 +66,17 @@ namespace Assignment7
             categoryList[18] = "Sci-Fi";
             categoryList[19] = "New Release";
             categoryList[20] = "New Release";
+           
             CategoryList.Items.AddRange(categoryList);
 
+            string[] priceList = new string[4];
+
+            priceList[0] = "1.99";
+            priceList[1] = "2.99";
+            priceList[2] = "0.99";
+            priceList[3] = "4.99";
+            PriceList.Items.AddRange(priceList); 
+            
 
         }
 
@@ -89,12 +94,43 @@ namespace Assignment7
 
         private void MoviesList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TitleTextBox.Text = string.Empty;
             foreach (string value in MoviesList.SelectedItems)
+            {
                 if (value == "Season of the Witch")
                 {
+                    TitleTextBox.Text = value.ToString();
+                    MoviePictureBox.Image = new Bitmap(Properties.Resources.sow);
+                    CategoryTextBox.Text = CategoryList.Items[1].ToString();
+
+                }
+                if (value == "The Green Hornet")
+                {
+                    TitleTextBox.Text = value.ToString();
                     MoviePictureBox.Image = new Bitmap(Properties.Resources.Movie_Bonanza);
+                    CategoryTextBox.Text = CategoryList.Items[2].ToString();
+
+                }
+                if(CategoryTextBox.Text == "Action")
+                {
+                    PriceTextBox.Text = PriceList.Items[1].ToString();
                 }
 
+            }
+
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OrderForm OrderForm1 = new OrderForm(MoviePictureBox.Image);
+
+            OrderForm1.Title = TitleTextBox.Text;
+            OrderForm1.Category = CategoryTextBox.Text;
+            OrderForm1.Price = PriceTextBox.Text; 
+
+
+            OrderForm1.Show();
         }
     }
 }
