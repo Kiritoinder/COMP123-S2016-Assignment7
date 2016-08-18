@@ -6,8 +6,12 @@ using System.Windows.Forms;
 
 namespace Assignment7
 {
-    static class Program
+   public static class Program
     {
+        public static SplashScrene SplashScrene;
+        public static SelectionForm FirstForm;
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +20,11 @@ namespace Assignment7
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            FirstForm = new SelectionForm();
+            SplashScrene = new SplashScrene();
+
+            Application.Run(SplashScrene);
         }
     }
 }

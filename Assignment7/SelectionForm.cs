@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Assignment7
 {
-    public partial class Form1 : Form
+    public partial class SelectionForm : Form
     {
-        public Form1()
+        public SelectionForm()
         {
             InitializeComponent();
+        }
+
+        private void Movies_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Movies_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
